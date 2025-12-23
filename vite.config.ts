@@ -8,7 +8,7 @@ import { defineConfig } from "vite";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue(), legacy()],
-  base: "/home",
+  base: "./",
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
