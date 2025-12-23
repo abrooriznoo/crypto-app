@@ -370,6 +370,7 @@ onUnmounted(() => {
   color: #ffffff;
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
   margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 @media (hover: hover) {
@@ -384,7 +385,7 @@ onUnmounted(() => {
   .crypto-card {
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 15px;
+    margin-bottom: 15px;
   }
 }
 
