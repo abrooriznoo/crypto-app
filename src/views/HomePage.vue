@@ -167,6 +167,7 @@ import {
 } from "@ionic/vue";
 
 import { star, starOutline } from "ionicons/icons";
+import { toastController, onIonViewDidEnter } from '@ionic/vue'
 
 // STATE
 const coins = ref([]);
@@ -177,14 +178,54 @@ const sortBy = ref("rank");
 const favorites = ref(JSON.parse(localStorage.getItem("favorites") || "[]"));
 let interval = null;
 
+// HELPER TOAST
+const showToast = async (message) => {
+  const toast = await toastController.create({
+    message,
+    duration: 3000,
+    position: 'top', // WAJIB top
+    cssClass: 'toastify-toast toastify-toast--success',
+    animated: true,
+    buttons: [
+      {
+        text: '✕',
+        role: 'cancel'
+      }
+    ]
+  })
+
+  await toast.present()
+}
+
+const showToastError = async (message) => {
+  const toast = await toastController.create({
+    message,
+    duration: 3000,
+    position: 'top', // WAJIB top
+    cssClass: 'toastify-toast toastify-toast--error',
+    animated: true,
+    buttons: [
+      {
+        text: '✕',
+        role: 'cancel'
+      }
+    ]
+  })
+
+  await toast.present()
+}
+
+
 // GET DATA
 const getCoins = async () => {
   try {
     const response = await axios.get("https://api.coinlore.net/api/tickers/");
     allCoins.value = response.data.data.slice(0, 30);
     filterCoins();
+    showToast("Data refreshed");
   } catch (err) {
     console.error("API Error:", err);
+    showToastError("Failed to fetch data");
   } finally {
     loading.value = false;
   }
@@ -278,7 +319,7 @@ const getPriceChangeClass = (change) => {
 // REALTIME
 onMounted(() => {
   getCoins();
-  interval = setInterval(getCoins, 5000);
+  interval = setInterval(getCoins, 15000); // Refresh every 15 seconds
 });
 
 onUnmounted(() => {
