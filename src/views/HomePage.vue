@@ -371,6 +371,22 @@ onUnmounted(() => {
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
 }
 
+@media (hover: hover) {
+  .crypto-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+  }
+}
+
+@media (max-width: 480px) {
+  .crypto-card {
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 15px;
+  }
+}
+
 /* ========= HEADER ========= */
 .card-header-content {
   display: flex;
