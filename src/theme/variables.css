@@ -1,2 +1,17 @@
 /* For information on how to create your own theme, please refer to:
 http://ionicframework.com/docs/theming/ */
+/* Ionic theme - force dark mode */
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  --ion-background-color: #121212;
+  --ion-text-color: #ffffff;
+
+  --ion-color-step-50: #1e1e1e;
+  --ion-color-step-100: #2a2a2a;
+  --ion-color-step-150: #363636;
+  color: #ffffff;
+}
