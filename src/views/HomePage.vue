@@ -369,6 +369,7 @@ onUnmounted(() => {
   margin: 0;
   color: #ffffff;
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
+  margin-top: 15px;
 }
 
 @media (hover: hover) {
