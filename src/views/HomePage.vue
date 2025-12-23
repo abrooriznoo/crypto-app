@@ -296,6 +296,7 @@ onUnmounted(() => {
 /* ========= WRAPPER ========= */
 .content-wrapper {
   /* padding: 14px; */
+  padding: 10px;
   color: #ffffff;
 }
 
